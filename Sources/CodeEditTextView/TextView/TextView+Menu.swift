@@ -19,6 +19,16 @@ extension TextView {
             NSMenuItem(title: "Paste", action: #selector(paste(_:)), keyEquivalent: "v")
         ]
 
+        // Append additional menu items from the provider if available
+        if let provider = additionalMenuItemsProvider {
+            let selectedRange = selectionManager?.textSelections.first?.range ?? NSRange(location: 0, length: 0)
+            let additionalItems = provider(selectedRange)
+            if !additionalItems.isEmpty {
+                menu.addItem(NSMenuItem.separator())
+                menu.items.append(contentsOf: additionalItems)
+            }
+        }
+
         return menu
     }
 }

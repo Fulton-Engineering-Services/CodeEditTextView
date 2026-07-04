@@ -239,6 +239,10 @@ open class TextView: NSView, NSTextContent {
     /// The text view's delegate.
     public weak var delegate: TextViewDelegate?
 
+    /// Additional context-menu items appended after the default Cut/Copy/Paste,
+    /// built from the current selected range. Host apps set this to inject actions.
+    public var additionalMenuItemsProvider: ((NSRange) -> [NSMenuItem])?
+
     /// The text storage object for the text view.
     /// - Warning: Do not update the text storage object directly. Doing so will very likely break the text view's
     ///            layout system. Use methods like ``TextView/replaceCharacters(in:with:)-58mt7`` or
