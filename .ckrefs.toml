@@ -1,0 +1,5 @@
+[[refs]]
+type = "self"
+repo = "CodeEditTextView"
+ref = "HEAD"
+description = "This fork's own codekeeper index (FES fork of ChimeHQ/CodeEditTextView)."
